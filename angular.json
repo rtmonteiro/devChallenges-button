@@ -145,6 +145,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "button"
+    }
+  },
+  "defaultProject": "button",
+  "cli": {
+    "analytics": false
+  }
 }
