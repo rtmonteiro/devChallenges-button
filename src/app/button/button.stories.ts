@@ -5,45 +5,23 @@ export default {
   component: ButtonComponent
 };
 
-export const Default = () => ({
+const Template = (args) => ({
   component: ButtonComponent,
-  props: {
-    text: 'Default',
-  },
+  props: args,
+
 });
 
-export const Outline = () => ({
-  component: ButtonComponent,
-  props: {
-    text: 'Default',
-    variant: 'outline',
-    color: 'primary',
-  },
-});
+export const Default = Template.bind({});
+Default.args = { text: 'Default' };
 
-export const Text = () => ({
-  component: ButtonComponent,
-  props: {
-    text: 'Default',
-    variant: 'text'
-  },
-});
+export const Outline = Template.bind({});
+Outline.args = { ...Default.args, variant: 'outline', color: 'primary' };
 
-export const DisableShadow = () => ({
-  component: ButtonComponent,
-  props: {
-    text: 'Default',
-    color: 'primary',
-    disableShadow: true
-  },
-});
+export const Text = Template.bind({});
+Text.args = { ...Default.args, variant: 'text' };
 
-export const Disabled = () => ({
-  component: ButtonComponent,
-  props: {
-    text: 'Disabled',
-    color: 'default',
-    // disableShadow: true,
-    disable: true
-  },
-});
+export const DisableShadow = Template.bind({});
+DisableShadow.args = { ...Default.args, color: 'primary', disableShadow: true }
+
+export const Disabled = Template.bind({});
+Disabled.args = { ...Default.args, text: 'Disabled', disable: true }
