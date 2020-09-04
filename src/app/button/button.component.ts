@@ -1,17 +1,26 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+interface Props {
+  text: string;
+  variant: string;
+  color: string;
+  disableShadow: boolean;
+  disabled: boolean;
+}
+
 @Component({
   selector: 'dev-button',
-  templateUrl: './button.component.html',
+  template: '<button>{{text}}</button>',
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent implements OnInit {
 
   @Input('disableShadow') disableShadow: boolean = false;
   @Input('disabled') disabled: boolean = false;
-  text: string = '';
+  text: string;
   variant: string = 'default';
   color: string = 'default';
+  size: string = 'md';
 
   constructor() { }
 
@@ -20,10 +29,13 @@ export class ButtonComponent implements OnInit {
     if (this.disableShadow) {
       btn.style.boxShadow = 'none';
     }
-    btn.disabled = this.disabled;
+    if (this.disabled) {
+      btn.disabled = this.disabled;
+    }
+    this.getClasses().forEach(cssClass => btn.classList.add(cssClass))
   }
 
-  getClasses() {
+  getClasses(): string[] {
     let classList = [];
     switch (this.variant){
       case 'outline':
@@ -34,6 +46,7 @@ export class ButtonComponent implements OnInit {
         break;
       default:
         classList.push('variant-default');
+        break;
     }
     switch (this.color){
       case 'primary':
@@ -47,6 +60,18 @@ export class ButtonComponent implements OnInit {
         break;
       default:
         classList.push('color-default');
+        break;
+    }
+    switch (this.size) {
+      case 'sm':
+        classList.push('size-sm');
+        break;
+      case 'lg':
+        classList.push('size-lg');
+        break;
+      default:
+        classList.push('size-md');
+        break;
     }
     return classList;
   }
