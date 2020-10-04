@@ -15,8 +15,7 @@ $color-disabled-background: #E0E0E0;
 
 $color-darkSlateGray: #455A64;
 
-// $color-red: #9A0007;
-$color-red: #d3000b;
+$color-red: #9A0007;
 
 .material-icons {
   font-size: 1rem;
@@ -31,7 +30,8 @@ button {
   transition: background-color 200ms ease;
   // font
   font: {
-    family: 'Noto Sans JP';
+    // family: 'Noto Sans JP';
+    family: 'Roboto Mono';
     style: normal;
     weight: 500;
     size: 14px;
