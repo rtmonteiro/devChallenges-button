@@ -25,6 +25,18 @@ DisableShadow.args = { ...Default.args, color: 'primary', disableShadow: true }
 export const Disabled = Template.bind({});
 Disabled.args = { ...Default.args, label: 'Disabled', disabled: true }
 
+//#region ICONS
+
+export const StartIcon = Template.bind({});
+StartIcon.args = { ...Default.args, color:'primary', startIcon: 'add_shopping_cart'};
+
+export const EndIcon = Template.bind({});
+EndIcon.args = { ...Default.args, color:'primary', endIcon: 'add_shopping_cart'};
+
+//#endregion
+
+//#region SIZES
+
 export const SizeSmall = Template.bind({});
 SizeSmall.args = { ...Default.args, color:'primary', size: 'sm' };
 
@@ -33,6 +45,10 @@ SizeMedium.args = { ...Default.args, color:'primary', size: 'md' };
 
 export const SizeLarge = Template.bind({});
 SizeLarge.args = { ...Default.args, color:'primary', size: 'lg' };
+
+//#endregion
+
+//#region COLORS
 
 export const ColorDefault = Template.bind({});
 ColorDefault.args = { ...Default.args, color:'default' };
@@ -45,3 +61,5 @@ ColorSecondary.args = { ...Default.args, label: 'Secondary', color:'secondary' }
 
 export const ColorDanger = Template.bind({});
 ColorDanger.args = { ...Default.args, label: 'Danger', color:'danger' };
+
+//#endregion

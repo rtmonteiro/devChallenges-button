@@ -1,12 +1,12 @@
-import { Component, OnInit, Input, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'dev-button',
   template: `
     <button [ngClass]='classes'>
-      <span *ngIf="left_icon_name" class="material-icons" style="margin-right: 10px">{{left_icon_name}}</span>
+      <span *ngIf="startIcon" class="material-icons" style="margin-right: 10px">{{startIcon}}</span>
       {{text}}
-      <span *ngIf="right_icon_name" class="material-icons" style="margin-left: 10px">{{right_icon_name}}</span>
+      <span *ngIf="endIcon" class="material-icons" style="margin-left: 10px">{{endIcon}}</span>
     </button>`,
   styleUrls: ['./button.component.scss']
 })
@@ -14,8 +14,8 @@ export class ButtonComponent implements OnInit {
 
   @Input() disableShadow = undefined;
   @Input() disabled = undefined;
-  @Input() left_icon_name: string = undefined;
-  @Input() right_icon_name: string = undefined;
+  @Input() startIcon: string = undefined;
+  @Input() endIcon: string = undefined;
   @Input() variant = 'default';
   @Input() color = 'default';
   @Input() size = 'md';
