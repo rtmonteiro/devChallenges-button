@@ -25,10 +25,12 @@ button {
 
   transition: background-color 200ms ease;
   // font
-  font-family: 'Noto Sans JP';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
+  font: {
+    family: 'Noto Sans JP';
+    style: normal;
+    weight: 500;
+    size: 14px;
+  }
   line-height: 20px;
   text-align: center;
   outline: none;

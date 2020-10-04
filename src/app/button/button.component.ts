@@ -1,79 +1,40 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-interface Props {
-  text: string;
-  variant: string;
-  color: string;
-  disableShadow: boolean;
-  disabled: boolean;
-}
-
 @Component({
   selector: 'dev-button',
-  template: '<button>{{text}}</button>',
+  template: `<button [ngClass]='classes'>{{text}}</button>`,
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent implements OnInit {
 
-  @Input('disableShadow') disableShadow: boolean = false;
-  @Input('disabled') disabled: boolean = false;
-  text: string;
-  variant: string = 'default';
-  color: string = 'default';
-  size: string = 'md';
+  @Input() disableShadow = undefined;
+  @Input() disabled = undefined;
+  @Input() variant = 'default';
+  @Input() color = 'default';
+  @Input() size = 'md';
+  @Input() label: string;
+  get text() {
+    return this.label;
+  }
+
+  get classes() {
+    let cssClasses = [];
+
+    cssClasses.push(`variant-${this.variant}`);
+    cssClasses.push(`color-${this.color}`);
+    cssClasses.push(`size-${this.size}`);
+
+    return cssClasses;
+  }
 
   constructor() { }
 
   ngOnInit(): void {
     const btn = document.querySelector('button');
-    if (this.disableShadow) {
+    if (this.disableShadow !== undefined) {
       btn.style.boxShadow = 'none';
     }
-    if (this.disabled) {
-      btn.disabled = this.disabled;
-    }
-    this.getClasses().forEach(cssClass => btn.classList.add(cssClass))
-  }
-
-  getClasses(): string[] {
-    let classList = [];
-    switch (this.variant){
-      case 'outline':
-        classList.push('variant-outline');
-        break;
-      case 'text':
-        classList.push('variant-text');
-        break;
-      default:
-        classList.push('variant-default');
-        break;
-    }
-    switch (this.color){
-      case 'primary':
-        classList.push('color-primary');
-        break;
-      case 'secondary':
-        classList.push('color-secondary');
-        break;
-      case 'danger':
-        classList.push('color-danger');
-        break;
-      default:
-        classList.push('color-default');
-        break;
-    }
-    switch (this.size) {
-      case 'sm':
-        classList.push('size-sm');
-        break;
-      case 'lg':
-        classList.push('size-lg');
-        break;
-      default:
-        classList.push('size-md');
-        break;
-    }
-    return classList;
+    btn.disabled = this.disabled !== undefined;
   }
 
 }
