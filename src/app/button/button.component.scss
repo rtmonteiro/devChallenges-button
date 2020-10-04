@@ -17,6 +17,10 @@ $color-darkSlateGray: #455A64;
 
 $color-red: #9A0007;
 
+.material-icons {
+  font-size: 1rem;
+}
+
 button {
   margin: 0;
   border: none;
@@ -34,6 +38,8 @@ button {
   line-height: 20px;
   text-align: center;
   outline: none;
+  display: inline-flex;
+  align-items: center;
   &:disabled {
     background-color: $color-disabled-background !important;
     color: $color-disabled-text !important;
