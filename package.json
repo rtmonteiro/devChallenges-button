@@ -10,7 +10,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token gpp2hfej12a"
   },
   "private": true,
   "dependencies": {
@@ -39,6 +40,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "babel-loader": "^8.1.0",
+    "chromatic": "^5.2.0",
     "codelyzer": "^6.0.0",
     "cz-conventional-changelog": "^3.2.0",
     "jasmine-core": "~3.5.0",
